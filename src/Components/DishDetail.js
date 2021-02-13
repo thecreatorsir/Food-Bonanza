@@ -1,8 +1,7 @@
 import React from 'react'
 import { Card, CardImg, CardImgOverlay, CardText, CardBody,
   CardTitle } from 'reactstrap';
-const DishDetail = ({dish}) => {
-  
+
   function renderDish(dish){
     if(dish!=null){
       return (
@@ -21,8 +20,8 @@ const DishDetail = ({dish}) => {
       )
       
     }
-  }
- 
+  }  
+
 
   function renderComment(dish){
     if(dish!=null){
@@ -48,7 +47,9 @@ const DishDetail = ({dish}) => {
     }
   }
 
+const DishDetail = ({dish}) => {
   return (
+    <div className='container'>
     <div className="row">
       <div  className="col-12 col-md-5 m-1">
          {renderDish(dish)}  
@@ -57,7 +58,7 @@ const DishDetail = ({dish}) => {
           {renderComment(dish)} 
       </div>
     </div>
-    
+    </div>
   )
 }
 
