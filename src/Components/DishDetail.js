@@ -1,65 +1,66 @@
 import React from 'react'
-import { Card, CardImg, CardImgOverlay, CardText, CardBody,
-  CardTitle } from 'reactstrap';
+import { Card, CardImg, CardText, CardBody,
+  CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
+import { Link } from 'react-router-dom';
 
-  function renderDish(dish){
-    if(dish!=null){
+  const RenderDish = ({ dish }) => {
       return (
-         <Card>
-        <CardImg top src={dish.image} alt={dish.name} />
+        <Card>
+        <CardImg src={dish.image} alt={dish.name} />
         <CardBody>
-          <CardTitle>{dish.name}</CardTitle>
-          <CardText><em>{dish.description}</em></CardText>
+        <CardTitle>{dish.name}</CardTitle>
+        <CardText><em>{dish.description}</em></CardText>
         </CardBody>
-     </Card>
+    </Card>
       )
-      
-    }else{
-      return(
-       <div></div>
-      )
-      
-    }
   }  
 
 
-  function renderComment(dish){
-    if(dish!=null){
+  const RenderComment = ({comments}) => {
+   console.log("test")
       return (
-      <Card>
-        <CardBody>
-        <CardTitle>Comments</CardTitle>
-      {dish.comments.map((com)=>{
+      <div> 
+      <div className='h3'>Comments</div>
+      {comments.map((com)=>{
         return(
-              <>
-              <CardText>{com.comment}</CardText>
-              <CardText><em> -- {com.author}</em> </CardText>
-              </>
+              <ul key={com.id} className = "list-unstyled">
+              <li>{com.comment}</li>
+              <li><em> -- {com.author}</em> </li>
+              </ul>
         )
         })}
-        </CardBody>
-        </Card>
+      </div> 
         )
-    }else{
-      return(
-       <div></div>
-      )
-    }
+    
   }
 
-const DishDetail = ({dish}) => {
+const DishDetail = (props) => {
+  if(props.dish!=null){
   return (
     <div className='container'>
+      <div className="row">
+            <Breadcrumb>
+                <BreadcrumbItem><Link to="/menu">Menu</Link></BreadcrumbItem>
+                <BreadcrumbItem active>{props.dish.name}</BreadcrumbItem>
+            </Breadcrumb>
+            <div className="col-12">
+                <h3>{props.dish.name}</h3>
+                <hr />
+            </div>                
+        </div>
     <div className="row">
       <div  className="col-12 col-md-5 m-1">
-         {renderDish(dish)}  
+         <RenderDish dish={props.dish}/> 
       </div>
       <div  className="col-12 col-md-5 m-1">
-          {renderComment(dish)} 
+          <RenderComment comments={props.comments}/>
       </div>
     </div>
     </div>
   )
+  }else{
+    <div></div>
+  }
 }
 
 
