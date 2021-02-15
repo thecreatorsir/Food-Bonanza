@@ -17,7 +17,6 @@ import { Link } from 'react-router-dom';
 
 
   const RenderComment = ({comments}) => {
-   console.log("test")
       return (
       <div> 
       <div className='h3'>Comments</div>

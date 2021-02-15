@@ -58,9 +58,7 @@ class Main extends Component {
            <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.setId)[0]}
             comments={this.state.comments} />
          </Route>
-         <Route>
-           <About leaders={this.state.leaders}/>
-         </Route>
+         <Route path="/aboutus" component={()=> <About  leaders={this.state.leaders}/>} />
          <Route exact path="/contactus" component={Contact} />
          <Redirect to="/home"/>
        </Switch>

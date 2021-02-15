@@ -31,6 +31,7 @@ function Contact(props) {
                 </div>
                 <div className="col-12 col-sm-6 offset-sm-1">
                     <h5>Map of our Location</h5>
+                    <iframe className="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3443.55211962004!2d76.41587131447842!3d30.33525498177736!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3910285baff25c2b%3A0xec7c66bf6f025f4f!2sThapar%20University!5e0!3m2!1sen!2sin!4v1613366651945!5m2!1sen!2sin" style={{ width:600, height:450, frameborder:0, border:0 }} allowfullscreen="" aria-hidden="false" tabindex="0" ></iframe>
                 </div>
                 <div className="col-12 col-sm-11 offset-sm-1">
                     <div className="btn-group" role="group">
