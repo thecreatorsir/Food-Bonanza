@@ -11,6 +11,7 @@ import Footer from './FooterComponent';
 import {Switch,Route,Redirect} from 'react-router-dom'
 import Home from './HomeComponent';
 import Contact from './ContactusComponent'
+import About from './AboutComponent';
 class Main extends Component {
   constructor(props) {
     super(props);
@@ -56,6 +57,9 @@ class Main extends Component {
          <Route path='/dishdetail'>
            <DishDetail dish={this.state.dishes.filter((dish) => dish.id === this.state.setId)[0]}
             comments={this.state.comments} />
+         </Route>
+         <Route>
+           <About leaders={this.state.leaders}/>
          </Route>
          <Route exact path="/contactus" component={Contact} />
          <Redirect to="/home"/>
