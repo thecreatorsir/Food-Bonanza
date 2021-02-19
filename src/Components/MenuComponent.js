@@ -3,10 +3,10 @@ import { Card, CardImg, CardImgOverlay,
   CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import { Link } from 'react-router-dom';
 
-function RenderMenu({ dish,onClick }){
+function RenderMenu({ dish }){
  return (
-<Card onClick={()=>onClick(dish.id)}>
-    <Link to={`/dishdetail`} >
+<Card>
+    <Link to={`/menu/${dish.id}`} >
         <CardImg width="100%" src={dish.image} alt={dish.name} />
         <CardImgOverlay>
             <CardTitle className="text-white">{dish.name}</CardTitle>
@@ -23,7 +23,7 @@ const Menu = (props) =>  {
            const menu = props.dishes.map((dish) => {
                return (
                 <div key={dish.id}  className="col-12 col-md-5 m-1">
-               <RenderMenu dish={dish} onClick={props.onClick}/>
+               <RenderMenu dish={dish}/>
               </div>
                );
            });
