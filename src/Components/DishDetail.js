@@ -17,7 +17,7 @@ import CommentForm from "./CommentForm"
   }  
 
 
-  const RenderComment = ({comments}) => {
+  const RenderComment = ({comments,addComment,dishId}) => {
       return (
       <div> 
       <div className='h3'>Comments</div>
@@ -29,7 +29,7 @@ import CommentForm from "./CommentForm"
               </ul>
         )
         })}
-        <CommentForm/>
+        <CommentForm addComment={addComment} dishId={dishId} />
       </div> 
         )
     
@@ -54,7 +54,9 @@ const DishDetail = (props) => {
          <RenderDish dish={props.dish}/> 
       </div>
       <div  className="col-12 col-md-5 m-1">
-          <RenderComment comments={props.comments}/>
+          <RenderComment comments={props.comments}
+          addComment={props.addComment}
+          dishId={props.dish.id}/>
       </div>
     </div>
     </div>
