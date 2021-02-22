@@ -93,7 +93,7 @@ export default class FormComment extends Component {
               <Button
                 type='submit'
                 value='submit'
-                color='primary'
+                color='success'
                 onClick={this.toggleModal}
               >
                 Submit
